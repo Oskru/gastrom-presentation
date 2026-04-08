@@ -37,6 +37,7 @@
             <li class="text-lg"><i class="fa-solid fa-book" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Informacje o pracy</li>
             <li class="text-lg"><i class="fa-solid fa-code" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Realizacja techniczna</li>
             <li class="text-lg" style="padding-left: 40px; font-size: 15pt; color: var(--muted-color);">Model bazy danych &nbsp;&bull;&nbsp; Stos technologiczny &nbsp;&bull;&nbsp; Testowanie</li>
+            <li class="text-lg"><i class="fa-solid fa-cubes" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Funkcjonalności systemu</li>
             <li class="text-lg"><i class="fa-solid fa-flag-checkered" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Podsumowanie i wnioski</li>
           </ol>
         </div>
@@ -99,7 +100,7 @@
         <p>Technologie, architektura i testowanie</p>
       </section>
 
-      <!-- SLIDE: Model bazy danych -->
+      <!-- SLIDE: Architektura systemu -->
       <section id="model-db">
         <h2>Model bazy danych</h2>
         <div class="content">
@@ -120,9 +121,6 @@
                 <li><strong>fixed_cost</strong> - koszty stałe</li>
                 <li><strong>manager</strong> - konta użytkowników</li>
               </ul>
-              <div class="info-panel" style="margin-top: 10px;">
-                <p style="font-size: 11pt;"><i class="fa-solid fa-link" style="color: var(--primary-color);"></i> &nbsp;Soft-delete na kluczowych encjach, relacje klucz obcy między tabelami</p>
-              </div>
             </div>
           </div>
         </div>
@@ -221,6 +219,53 @@
         </div>
       </section>
 
+      <!-- DIVIDER: Funkcjonalności -->
+      <section id="divider-features" class="section-divider" data-state="is-section-divider">
+        <h1>Funkcjonalności systemu</h1>
+        <p>Przegląd modułów i możliwości aplikacji</p>
+      </section>
+
+      <!-- SLIDE: Przegląd systemu -->
+      <section id="przeglad">
+        <h2>Przegląd systemu</h2>
+        <div class="content">
+          <p style="margin-bottom: 18px;">System GastroM składa się z <strong>6 głównych modułów</strong>, dostępnych przez intuicyjne menu nawigacyjne:</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+            <div class="feature-card">
+              <i class="fa-solid fa-gauge-high"></i>
+              <p><strong>Panel główny</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Konfigurowalne statystyki i wykresy w czasie rzeczywistym</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <p><strong>Magazyn</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Składniki, produkty, alerty o niskim stanie</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-user-tie"></i>
+              <p><strong>Pracownicy</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Ewidencja, godziny pracy, wynagrodzenia</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-coins"></i>
+              <p><strong>Koszty stałe</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Rejestracja wydatków operacyjnych</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <p><strong>Raporty sprzedaży</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Generowanie i pobieranie raportów PDF</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p><strong>Zarządzanie użytkownikami</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Role, uprawnienia, konta</p>
+            </div>
+          </div>
+          <p class="text-muted" style="font-size: 12pt; margin-top: 15px;">Odbiorcy: menadżerowie i administratorzy zakładów gastronomicznych</p>
+        </div>
+      </section>
+
       <!-- DIVIDER: Podsumowanie -->
       <section id="divider-summary" class="section-divider" data-state="is-section-divider">
         <h1>Podsumowanie</h1>
@@ -261,8 +306,8 @@
       <!-- SLIDE 15: Podziękowania -->
       <section id="thanks" class="thanks-slide" data-state="is-section-divider">
         <h1>Dziękujemy za uwagę</h1>
-        <p style="font-size: 14pt; margin-top: 30px; color: var(--text-color);"><i class="fa-solid fa-globe"></i> &nbsp;gastrom.onrender.com</p>
-        <p style="font-size: 14pt; margin-top: 10px; color: var(--text-color);">Igor Kohsin &nbsp;&bull;&nbsp; Oskar Krupa</p>
+        <p style="font-size: 16pt; margin-top: 30px; color: var(--text-color);"><i class="fa-solid fa-globe" style="color: var(--primary-color);"></i> &nbsp;gastrom.onrender.com</p>
+        <p style="font-size: 16pt; margin-top: 10px; color: var(--text-color);">Igor Kohsin &nbsp;&bull;&nbsp; Oskar Krupa</p>
       </section>
 
     </div>
