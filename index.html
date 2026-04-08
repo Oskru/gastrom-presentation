@@ -21,8 +21,7 @@
 
       <!-- SLIDE 1: Title -->
       <section id="title" class="title-slide" data-state="is-section-divider">
-        <h1>GastroM</h1>
-        <p class="text-xl" style="margin-bottom: 8px;">Webowy system zarządzania działalnością gastronomiczną</p>
+        <h1>Implementacja webowego systemu zarządzania działalnością gastronomiczną z użyciem Spring i React</h1>
         <p class="text-muted" style="font-size: 14pt; margin-top: 20px;">Praca dyplomowa inżynierska</p>
         <p style="font-size: 14pt; margin-top: 5px;"><strong>Igor Kohsin</strong> &nbsp;&bull;&nbsp; <strong>Oskar Krupa</strong></p>
         <p class="text-muted" style="font-size: 12pt; margin-top: 5px;">Promotor: dr hab. Ewa Ratajczak-Ropel, prof. UMG</p>
@@ -35,10 +34,11 @@
         <div class="content">
           <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
             <li class="text-lg"><i class="fa-solid fa-bullseye" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Cel i motywacja</li>
+            <li class="text-lg"><i class="fa-solid fa-book" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Informacje o pracy</li>
+            <li class="text-lg"><i class="fa-solid fa-code" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Realizacja techniczna</li>
+            <li class="text-lg" style="padding-left: 40px; font-size: 15pt; color: var(--muted-color);">Model bazy danych &nbsp;&bull;&nbsp; Stos technologiczny &nbsp;&bull;&nbsp; Testowanie</li>
             <li class="text-lg"><i class="fa-solid fa-cubes" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Funkcjonalności systemu</li>
             <li class="text-lg" style="padding-left: 40px; font-size: 15pt; color: var(--muted-color);">Panel główny &nbsp;&bull;&nbsp; Magazyn &nbsp;&bull;&nbsp; Pracownicy &nbsp;&bull;&nbsp; Koszty &nbsp;&bull;&nbsp; Raporty &nbsp;&bull;&nbsp; Użytkownicy</li>
-            <li class="text-lg"><i class="fa-solid fa-code" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Realizacja techniczna</li>
-            <li class="text-lg" style="padding-left: 40px; font-size: 15pt; color: var(--muted-color);">Stos technologiczny &nbsp;&bull;&nbsp; Testowanie</li>
             <li class="text-lg"><i class="fa-solid fa-flag-checkered" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Podsumowanie i wnioski</li>
             <li class="text-lg"><i class="fa-solid fa-desktop" style="color: var(--primary-color); width: 30px; text-align: center;"></i> &nbsp;Prezentacja aplikacji (demo)</li>
           </ol>
@@ -50,246 +50,48 @@
         <h2>Cel i motywacja</h2>
         <div class="content">
           <div class="info-panel" style="margin-bottom: 20px;">
-            <p><strong>Cel pracy:</strong> Zaprojektowanie i implementacja systemu webowego wspomagającego zarządzanie działalnością gastronomiczną.</p>
+            <p><strong>Cel pracy:</strong> Zaprojektowanie i implementacja systemu webowego (aplikacji internetowej) do wspomagania działalności gastronomicznej.</p>
           </div>
-          <p class="text-lg" style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">Problem:</strong> Tradycyjne metody zarządzania restauracją oparte na ręcznej dokumentacji są niewystarczające w dynamicznym środowisku gastronomicznym.</p>
-          <p class="text-lg" style="margin-bottom: 15px;"><strong style="color: var(--secondary-color);">Rozwiązanie:</strong> GastroM — aplikacja webowa typu ERP, centralizująca dane i automatyzująca procesy zarządzania restauracją.</p>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
-            <div class="stat-box">
-              <div class="stat-number"><i class="fa-solid fa-warehouse" style="font-size: 24pt;"></i></div>
-              <div class="stat-label">Magazyn</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number"><i class="fa-solid fa-users" style="font-size: 24pt;"></i></div>
-              <div class="stat-label">Pracownicy</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number"><i class="fa-solid fa-chart-line" style="font-size: 24pt;"></i></div>
-              <div class="stat-label">Finanse</div>
-            </div>
-          </div>
+          <p class="text-lg" style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">Problem:</strong> Tradycyjne metody zarządzania działalnością gastronomiczną oparte na ręcznej dokumentacji są niewystarczające w dynamicznym środowisku gastronomicznym.</p>
+          <p class="text-lg" style="margin-bottom: 15px;"><strong style="color: var(--secondary-color);">Rozwiązanie:</strong> GastroM - aplikacja webowa typu ERP, centralizująca dane i automatyzująca procesy zarządzania działalnością gastronomiczną. System dedykowany <strong>małym działalnościom gastronomicznym</strong>, dla których profesjonalne systemy ERP są zbyt kosztowne i złożone.</p>
         </div>
       </section>
 
-      <!-- DIVIDER: Funkcjonalności -->
-      <section id="divider-features" class="section-divider" data-state="is-section-divider">
-        <h1>Funkcjonalności systemu</h1>
-        <p>Przegląd modułów i możliwości aplikacji</p>
-      </section>
-
-      <!-- SLIDE 4: Przegląd systemu -->
-      <section id="przeglad">
-        <h2>Przegląd systemu</h2>
+      <!-- SLIDE: Struktura pracy -->
+      <section id="struktura-pracy">
+        <h2>Struktura pracy</h2>
         <div class="content">
-          <p style="margin-bottom: 18px;">System GastroM składa się z <strong>6 głównych modułów</strong>, dostępnych przez intuicyjne menu nawigacyjne:</p>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
-            <div class="feature-card">
-              <i class="fa-solid fa-gauge-high"></i>
-              <p><strong>Panel główny</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Konfigurowalne statystyki i wykresy w czasie rzeczywistym</p>
+          <p style="margin-bottom: 18px;">Praca dyplomowa została napisana przez dwóch autorów i składa się z <strong>4 rozdziałów</strong> oraz podsumowania:</p>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; align-items: start;">
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center;">
+              <div class="stat-label" style="font-size: 11pt;">Wstęp</div>
             </div>
-            <div class="feature-card">
-              <i class="fa-solid fa-boxes-stacked"></i>
-              <p><strong>Magazyn</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Składniki, produkty, alerty o niskim stanie</p>
-            </div>
-            <div class="feature-card">
-              <i class="fa-solid fa-user-tie"></i>
-              <p><strong>Pracownicy</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Ewidencja, godziny pracy, wynagrodzenia</p>
-            </div>
-            <div class="feature-card">
-              <i class="fa-solid fa-coins"></i>
-              <p><strong>Koszty stałe</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Rejestracja wydatków operacyjnych</p>
-            </div>
-            <div class="feature-card">
-              <i class="fa-solid fa-file-invoice-dollar"></i>
-              <p><strong>Raporty sprzedaży</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Generowanie i pobieranie raportów PDF</p>
-            </div>
-            <div class="feature-card">
-              <i class="fa-solid fa-shield-halved"></i>
-              <p><strong>Zarządzanie użytkownikami</strong></p>
-              <p class="text-muted" style="font-size: 12pt;">Role, uprawnienia, konta</p>
-            </div>
-          </div>
-          <p class="text-muted" style="font-size: 12pt; margin-top: 15px;">Odbiorcy: menadżerowie i administratorzy zakładów gastronomicznych</p>
-        </div>
-      </section>
+            <p class="text-lg">Wprowadzenie do tematyki, cel pracy i opis struktury</p>
 
-      <!-- SLIDE 5: Dashboard -->
-      <section id="dashboard">
-        <h2>Panel główny (Dashboard)</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-            <div>
-              <p class="text-lg" style="margin-bottom: 12px;">Konfigurowalne centrum dowodzenia z <strong>19 kafelkami</strong> statystyk:</p>
-              <ul>
-                <li>Całkowita sprzedaż, zamówienia, zysk netto</li>
-                <li>Średnia wartość zamówienia i marża</li>
-                <li>Podział przychodów: gotówka vs karta</li>
-                <li>Alerty o niskim stanie magazynowym</li>
-                <li>Wykresy: top produkty, metody płatności</li>
-                <li>Ostatnie transakcje w&nbsp;czasie rzeczywistym</li>
-              </ul>
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center;">
+              <div class="stat-number" style="font-size: 14pt;">R. 1</div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-              <div class="info-panel">
-                <p><strong><i class="fa-solid fa-clock" style="color: var(--primary-color);"></i> &nbsp;Przedziały czasowe</strong></p>
-                <p style="font-size: 13pt; margin-top: 5px;">Użytkownik wybiera zakres danych: dzienny, tygodniowy, miesięczny, roczny lub od początku działalności</p>
-              </div>
-              <div class="info-panel">
-                <p><strong><i class="fa-solid fa-grip" style="color: var(--primary-color);"></i> &nbsp;Drag & Drop</strong></p>
-                <p style="font-size: 13pt; margin-top: 5px;">Personalizacja układu — przeciąganie, dodawanie i usuwanie kafelków</p>
-              </div>
-              <div class="info-panel">
-                <p><strong><i class="fa-solid fa-rotate" style="color: var(--primary-color);"></i> &nbsp;Dane na żywo</strong></p>
-                <p style="font-size: 13pt; margin-top: 5px;">Automatyczne odświeżanie i buforowanie danych z serwera</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p class="text-lg"><strong style="color: var(--primary-color);">Tworzenie aplikacji internetowych</strong> - omówienie zagadnień teoretycznych: frontend (React), backend (Spring), bazy danych, testowanie, współpraca warstw</p>
 
-      <!-- SLIDE 6: Magazyn -->
-      <section id="magazyn">
-        <h2>Zarządzanie magazynem</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-cubes"></i> &nbsp;Składniki</h3>
-              <ul>
-                <li>Dodawanie, edycja i usuwanie składników</li>
-                <li>Parametry: nazwa, jednostka (g, ml, szt.), cena jednostkowa</li>
-                <li>Uzupełnianie zapasów z automatycznym naliczaniem kosztu</li>
-                <li><strong style="color: var(--secondary-color);">Alerty</strong> o niskim stanie — próg ostrzeżenia dla każdego składnika</li>
-              </ul>
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center;">
+              <div class="stat-number" style="font-size: 14pt;">R. 2</div>
             </div>
-            <div>
-              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-burger"></i> &nbsp;Produkty sprzedażowe</h3>
-              <ul>
-                <li>Tworzenie produktów z recepturą (lista składników + ilości)</li>
-                <li>Cena sprzedaży i oznaczenie na wynos / w lokalu</li>
-                <li>Automatyczny koszt składników na podstawie receptury</li>
-                <li><strong style="color: var(--secondary-color);">Rentowność</strong> — analiza marży per produkt</li>
-              </ul>
-            </div>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 25px;">
-            <div class="stat-box">
-              <div class="stat-number" style="font-size: 16pt;">CRUD</div>
-              <div class="stat-label">Pełne operacje</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-bell" style="font-size: 18pt;"></i></div>
-              <div class="stat-label">Alerty stanów</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-calculator" style="font-size: 18pt;"></i></div>
-              <div class="stat-label">Auto-koszty</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-receipt" style="font-size: 18pt;"></i></div>
-              <div class="stat-label">Receptury</div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p class="text-lg"><strong style="color: var(--primary-color);">Projekt aplikacji</strong> - analiza wymagań funkcjonalnych i pozafunkcjonalnych, schemat bazy danych, projekt interfejsu, wybór technologii</p>
 
-      <!-- SLIDE 7: Pracownicy -->
-      <section id="pracownicy">
-        <h2>Zarządzanie pracownikami</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 30px;">
-            <div>
-              <p class="text-lg" style="margin-bottom: 15px;">Moduł kompleksowej ewidencji personelu z obliczaniem wynagrodzeń:</p>
-              <ul class="icon-list">
-                <li><i class="fa-solid fa-user-plus"></i>Dodawanie pracowników: imię, nazwisko, email, telefon, stawka godzinowa</li>
-                <li><i class="fa-solid fa-clock"></i>Ewidencja czasu pracy — rejestrowanie przepracowanych godzin</li>
-                <li><i class="fa-solid fa-money-bill-wave"></i>Generowanie wynagrodzenia: godziny &times; stawka</li>
-                <li><i class="fa-solid fa-arrow-right-to-bracket"></i>Wypłaty automatycznie trafiają do kosztów stałych</li>
-                <li><i class="fa-solid fa-pen-to-square"></i>Edycja i usuwanie rekordów pracowników</li>
-              </ul>
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center;">
+              <div class="stat-number" style="font-size: 14pt;">R. 3</div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
-              <div class="stat-box">
-                <div class="stat-number" style="font-size: 20pt;">Stawka &times; Godziny</div>
-                <div class="stat-label">Automatyczna kalkulacja wypłat</div>
-              </div>
-              <div class="stat-box" style="border-color: rgba(135, 169, 107, 0.3);">
-                <div class="stat-number" style="font-size: 20pt; color: var(--secondary-color);"><i class="fa-solid fa-arrow-down" style="font-size: 16pt;"></i> Koszty stałe</div>
-                <div class="stat-label">Wynagrodzenia rejestrowane jako koszty</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p class="text-lg"><strong style="color: var(--primary-color);">Implementacja warstwy backend</strong> - struktura systemu, model danych, logika biznesowa, bezpieczeństwo (JWT, Spring Security), testowanie</p>
 
-      <!-- SLIDE 8: Koszty i raporty -->
-      <section id="koszty-raporty">
-        <h2>Koszty stałe i raporty sprzedaży</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-coins"></i> &nbsp;Koszty stałe</h3>
-              <p style="margin-bottom: 10px;">Ewidencja wydatków operacyjnych niezależnych od sprzedaży:</p>
-              <ul>
-                <li>Czynsz, media, ubezpieczenia</li>
-                <li>Wynagrodzenia pracowników</li>
-                <li>Koszty uzupełniania magazynu</li>
-                <li>Typ kosztu, kwota, opis, data</li>
-              </ul>
-              <p class="text-muted" style="font-size: 12pt; margin-top: 10px;">Dane uwzględniane w kalkulacji zysku na dashboardzie</p>
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center;">
+              <div class="stat-number" style="font-size: 14pt;">R. 4</div>
             </div>
-            <div>
-              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-file-pdf"></i> &nbsp;Raporty sprzedaży</h3>
-              <p style="margin-bottom: 10px;">Kompleksowe raporty finansowe za wybrany okres:</p>
-              <ul>
-                <li>Wybór przedziału dat (od — do)</li>
-                <li>Szczegółowe statystyki sprzedaży</li>
-                <li>Generowanie i archiwizacja na serwerze</li>
-                <li><strong>Pobieranie w formacie PDF</strong></li>
-              </ul>
-              <p class="text-muted" style="font-size: 12pt; margin-top: 10px;">Idealne do celów księgowych i analitycznych</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p class="text-lg"><strong style="color: var(--primary-color);">Implementacja warstwy frontend</strong> - struktura aplikacji React, komunikacja z API, autoryzacja, stylizacja, responsywność, testowanie E2E</p>
 
-      <!-- SLIDE 9: Użytkownicy i bezpieczeństwo -->
-      <section id="bezpieczenstwo">
-        <h2>Zarządzanie użytkownikami i bezpieczeństwo</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-              <h3 style="color: var(--primary-color); margin-bottom: 10px;">System ról</h3>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
-                <div class="stat-box">
-                  <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-user-gear" style="font-size: 18pt;"></i></div>
-                  <div class="stat-label">Administrator</div>
-                </div>
-                <div class="stat-box">
-                  <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-user" style="font-size: 18pt;"></i></div>
-                  <div class="stat-label">Menadżer</div>
-                </div>
-              </div>
-              <ul>
-                <li>Administrator: zarządzanie kontami użytkowników</li>
-                <li>Menadżer: pełny dostęp do funkcji operacyjnych</li>
-                <li>Dodawanie i usuwanie kont przez admina</li>
-              </ul>
+            <div class="stat-box" style="padding: 8px 15px; min-width: 60px; text-align: center; border-color: rgba(135, 169, 107, 0.3);">
+              <div class="stat-label" style="font-size: 11pt;">Podsum.</div>
             </div>
-            <div>
-              <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Bezpieczeństwo</h3>
-              <ul class="icon-list">
-                <li><i class="fa-solid fa-key"></i>Uwierzytelnianie za pomocą tokenów JWT</li>
-                <li><i class="fa-solid fa-lock"></i>Haszowanie haseł (BCrypt)</li>
-                <li><i class="fa-solid fa-shield-halved"></i>Autoryzacja endpointów REST API</li>
-                <li><i class="fa-solid fa-right-to-bracket"></i>Chronione trasy — przekierowanie na logowanie</li>
-                <li><i class="fa-solid fa-rotate-right"></i>Zmiana hasła z weryfikacją starego</li>
-              </ul>
-            </div>
+            <p class="text-lg">Wnioski końcowe i kierunki dalszego rozwoju systemu</p>
           </div>
         </div>
       </section>
@@ -300,7 +102,36 @@
         <p>Technologie, architektura i testowanie</p>
       </section>
 
-      <!-- SLIDE 11: Technologie -->
+      <!-- SLIDE: Model bazy danych -->
+      <section id="model-db">
+        <h2>Model bazy danych</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 20px; align-items: start;">
+            <div style="text-align: center;">
+              <img src="model%20bazy%20danych.png" alt="Schemat bazy danych GastroM" style="max-height: 480px; width: auto; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;">
+            </div>
+            <div style="font-size: 13pt;">
+              <p style="margin-bottom: 10px;">Relacyjna baza danych PostgreSQL z <strong>9 tabelami</strong>:</p>
+              <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+                <li><strong>employee</strong> - dane pracowników</li>
+                <li><strong>transaction</strong> - transakcje sprzedażowe</li>
+                <li><strong>product</strong> - produkty w ofercie</li>
+                <li><strong>ingredient</strong> - składniki magazynowe</li>
+                <li><strong>product_component</strong> - receptury</li>
+                <li><strong>transaction_product</strong> - pozycje transakcji</li>
+                <li><strong>report</strong> - raporty PDF</li>
+                <li><strong>fixed_cost</strong> - koszty stałe</li>
+                <li><strong>manager</strong> - konta użytkowników</li>
+              </ul>
+              <div class="info-panel" style="margin-top: 10px;">
+                <p style="font-size: 11pt;"><i class="fa-solid fa-link" style="color: var(--primary-color);"></i> &nbsp;Soft-delete na kluczowych encjach, relacje klucz obcy między tabelami</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Technologie -->
       <section id="technologie">
         <h2>Stos technologiczny</h2>
         <div class="content">
@@ -373,22 +204,245 @@
             <div>
               <h3 style="color: var(--primary-color); margin-bottom: 8px;">Backend</h3>
               <ul>
-                <li><strong>JUnit 5</strong> — testy jednostkowe serwisów</li>
-                <li><strong>Mockito</strong> — izolacja zależności</li>
-                <li><strong>MockMvc</strong> — testy integracyjne kontrolerów</li>
+                <li><strong>JUnit 5</strong> - testy jednostkowe serwisów</li>
+                <li><strong>Mockito</strong> - izolacja zależności</li>
+                <li><strong>MockMvc</strong> - testy integracyjne kontrolerów</li>
               </ul>
             </div>
             <div>
               <h3 style="color: var(--secondary-color); margin-bottom: 8px;">Frontend</h3>
               <ul>
-                <li><strong>Playwright</strong> — testy end-to-end</li>
+                <li><strong>Playwright</strong> - testy end-to-end</li>
                 <li>Wzorzec <strong>Page Object Model</strong></li>
-                <li>Selektory <strong>data-testid</strong> — stabilność testów</li>
+                <li>Selektory <strong>data-testid</strong> - stabilność testów</li>
               </ul>
             </div>
           </div>
           <div class="info-panel" style="margin-top: 18px;">
             <p><i class="fa-solid fa-globe" style="color: var(--primary-color);"></i> &nbsp;System dostępny online: <strong>gastrom.onrender.com</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIVIDER: Funkcjonalności -->
+      <section id="divider-features" class="section-divider" data-state="is-section-divider">
+        <h1>Funkcjonalności systemu</h1>
+        <p>Przegląd modułów i możliwości aplikacji</p>
+      </section>
+
+      <!-- SLIDE: Przegląd systemu -->
+      <section id="przeglad">
+        <h2>Przegląd systemu</h2>
+        <div class="content">
+          <p style="margin-bottom: 18px;">System GastroM składa się z <strong>6 głównych modułów</strong>, dostępnych przez intuicyjne menu nawigacyjne:</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+            <div class="feature-card">
+              <i class="fa-solid fa-gauge-high"></i>
+              <p><strong>Panel główny</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Konfigurowalne statystyki i wykresy w czasie rzeczywistym</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <p><strong>Magazyn</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Składniki, produkty, alerty o niskim stanie</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-user-tie"></i>
+              <p><strong>Pracownicy</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Ewidencja, godziny pracy, wynagrodzenia</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-coins"></i>
+              <p><strong>Koszty stałe</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Rejestracja wydatków operacyjnych</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <p><strong>Raporty sprzedaży</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Generowanie i pobieranie raportów PDF</p>
+            </div>
+            <div class="feature-card">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p><strong>Zarządzanie użytkownikami</strong></p>
+              <p class="text-muted" style="font-size: 12pt;">Role, uprawnienia, konta</p>
+            </div>
+          </div>
+          <p class="text-muted" style="font-size: 12pt; margin-top: 15px;">Odbiorcy: menadżerowie i administratorzy zakładów gastronomicznych</p>
+        </div>
+      </section>
+
+      <!-- SLIDE: Dashboard -->
+      <section id="dashboard">
+        <h2>Panel główny (Dashboard)</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+            <div>
+              <p class="text-lg" style="margin-bottom: 12px;">Konfigurowalne centrum dowodzenia z <strong>19 kafelkami</strong> statystyk:</p>
+              <ul>
+                <li>Całkowita sprzedaż, zamówienia, zysk netto</li>
+                <li>Średnia wartość zamówienia i marża</li>
+                <li>Podział przychodów: gotówka vs karta</li>
+                <li>Alerty o niskim stanie magazynowym</li>
+                <li>Wykresy: top produkty, metody płatności</li>
+                <li>Ostatnie transakcje w&nbsp;czasie rzeczywistym</li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="info-panel">
+                <p><strong><i class="fa-solid fa-clock" style="color: var(--primary-color);"></i> &nbsp;Przedziały czasowe</strong></p>
+                <p style="font-size: 13pt; margin-top: 5px;">Użytkownik wybiera zakres danych: dzienny, tygodniowy, miesięczny, roczny lub od początku działalności</p>
+              </div>
+              <div class="info-panel">
+                <p><strong><i class="fa-solid fa-grip" style="color: var(--primary-color);"></i> &nbsp;Drag & Drop</strong></p>
+                <p style="font-size: 13pt; margin-top: 5px;">Personalizacja układu - przeciąganie, dodawanie i usuwanie kafelków</p>
+              </div>
+              <div class="info-panel">
+                <p><strong><i class="fa-solid fa-rotate" style="color: var(--primary-color);"></i> &nbsp;Dane na żywo</strong></p>
+                <p style="font-size: 13pt; margin-top: 5px;">Automatyczne odświeżanie i buforowanie danych z serwera</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Magazyn -->
+      <section id="magazyn">
+        <h2>Zarządzanie magazynem</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-cubes"></i> &nbsp;Składniki</h3>
+              <ul>
+                <li>Dodawanie, edycja i usuwanie składników</li>
+                <li>Parametry: nazwa, jednostka (g, ml, szt.), cena jednostkowa</li>
+                <li>Uzupełnianie zapasów z automatycznym naliczaniem kosztu</li>
+                <li><strong style="color: var(--secondary-color);">Alerty</strong> o niskim stanie - próg ostrzeżenia dla każdego składnika</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-burger"></i> &nbsp;Produkty sprzedażowe</h3>
+              <ul>
+                <li>Tworzenie produktów z recepturą (lista składników + ilości)</li>
+                <li>Cena sprzedaży i oznaczenie na wynos / w lokalu</li>
+                <li>Automatyczny koszt składników na podstawie receptury</li>
+                <li><strong style="color: var(--secondary-color);">Rentowność</strong> - analiza marży per produkt</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 25px;">
+            <div class="stat-box">
+              <div class="stat-number" style="font-size: 16pt;">CRUD</div>
+              <div class="stat-label">Pełne operacje</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-bell" style="font-size: 18pt;"></i></div>
+              <div class="stat-label">Alerty stanów</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-calculator" style="font-size: 18pt;"></i></div>
+              <div class="stat-label">Auto-koszty</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-receipt" style="font-size: 18pt;"></i></div>
+              <div class="stat-label">Receptury</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Pracownicy -->
+      <section id="pracownicy">
+        <h2>Zarządzanie pracownikami</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 30px;">
+            <div>
+              <p class="text-lg" style="margin-bottom: 15px;">Moduł kompleksowej ewidencji personelu z obliczaniem wynagrodzeń:</p>
+              <ul class="icon-list">
+                <li><i class="fa-solid fa-user-plus"></i>Dodawanie pracowników: imię, nazwisko, email, telefon, stawka godzinowa</li>
+                <li><i class="fa-solid fa-clock"></i>Ewidencja czasu pracy - rejestrowanie przepracowanych godzin</li>
+                <li><i class="fa-solid fa-money-bill-wave"></i>Generowanie wynagrodzenia: godziny &times; stawka</li>
+                <li><i class="fa-solid fa-arrow-right-to-bracket"></i>Wypłaty automatycznie trafiają do kosztów stałych</li>
+                <li><i class="fa-solid fa-pen-to-square"></i>Edycja i usuwanie rekordów pracowników</li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+              <div class="stat-box">
+                <div class="stat-number" style="font-size: 20pt;">Stawka &times; Godziny</div>
+                <div class="stat-label">Automatyczna kalkulacja wypłat</div>
+              </div>
+              <div class="stat-box" style="border-color: rgba(135, 169, 107, 0.3);">
+                <div class="stat-number" style="font-size: 20pt; color: var(--secondary-color);"><i class="fa-solid fa-arrow-down" style="font-size: 16pt;"></i> Koszty stałe</div>
+                <div class="stat-label">Wynagrodzenia rejestrowane jako koszty</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Koszty i raporty -->
+      <section id="koszty-raporty">
+        <h2>Koszty stałe i raporty sprzedaży</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-coins"></i> &nbsp;Koszty stałe</h3>
+              <p style="margin-bottom: 10px;">Ewidencja wydatków operacyjnych niezależnych od sprzedaży:</p>
+              <ul>
+                <li>Czynsz, media, ubezpieczenia</li>
+                <li>Wynagrodzenia pracowników</li>
+                <li>Koszty uzupełniania magazynu</li>
+                <li>Typ kosztu, kwota, opis, data</li>
+              </ul>
+              <p class="text-muted" style="font-size: 12pt; margin-top: 10px;">Dane uwzględniane w kalkulacji zysku na dashboardzie</p>
+            </div>
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fa-solid fa-file-pdf"></i> &nbsp;Raporty sprzedaży</h3>
+              <p style="margin-bottom: 10px;">Kompleksowe raporty finansowe za wybrany okres:</p>
+              <ul>
+                <li>Wybór przedziału dat (od - do)</li>
+                <li>Szczegółowe statystyki sprzedaży</li>
+                <li>Generowanie i archiwizacja na serwerze</li>
+                <li><strong>Pobieranie w formacie PDF</strong></li>
+              </ul>
+              <p class="text-muted" style="font-size: 12pt; margin-top: 10px;">Idealne do celów księgowych i analitycznych</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE: Użytkownicy i bezpieczeństwo -->
+      <section id="bezpieczenstwo">
+        <h2>Zarządzanie użytkownikami i bezpieczeństwo</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;">System ról</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
+                <div class="stat-box">
+                  <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-user-gear" style="font-size: 18pt;"></i></div>
+                  <div class="stat-label">Administrator</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-number" style="font-size: 16pt;"><i class="fa-solid fa-user" style="font-size: 18pt;"></i></div>
+                  <div class="stat-label">Menadżer</div>
+                </div>
+              </div>
+              <ul>
+                <li>Administrator: zarządzanie kontami użytkowników</li>
+                <li>Menadżer: pełny dostęp do funkcji operacyjnych</li>
+                <li>Dodawanie i usuwanie kont przez admina</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Bezpieczeństwo</h3>
+              <ul class="icon-list">
+                <li><i class="fa-solid fa-key"></i>Uwierzytelnianie za pomocą tokenów JWT</li>
+                <li><i class="fa-solid fa-lock"></i>Haszowanie haseł (BCrypt)</li>
+                <li><i class="fa-solid fa-shield-halved"></i>Autoryzacja endpointów REST API</li>
+                <li><i class="fa-solid fa-right-to-bracket"></i>Chronione trasy - przekierowanie na logowanie</li>
+                <li><i class="fa-solid fa-rotate-right"></i>Zmiana hasła z weryfikacją starego</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -407,10 +461,12 @@
               <h3 style="color: var(--primary-color); margin-bottom: 10px;">Wnioski</h3>
               <ul>
                 <li>Zrealizowano <strong>w pełni funkcjonalny</strong> system gotowy do wdrożenia</li>
-                <li>Trafny wybór Spring + React — rozbudowane ekosystemy</li>
+                <li>Trafny wybór Spring + React - rozbudowane ekosystemy</li>
                 <li>TanStack Query znacząco uprościł zarządzanie stanem danych</li>
                 <li>Wyzwanie: implementacja JWT i blokad pesymistycznych</li>
-                <li>Playwright z Page Object Model — stabilne testy E2E</li>
+                <li>Playwright z Page Object Model - stabilne testy E2E</li>
+                <li><strong>Obszerna dokumentacja</strong> technologii - konieczność przestudiowania wielu źródeł</li>
+                <li>Uzupełnianie wiedzy <strong>wykraczającej poza program studiów</strong> (Spring Security, testowanie E2E)</li>
               </ul>
             </div>
             <div>
@@ -428,9 +484,9 @@
         </div>
       </section>
 
-      <!-- SLIDE 15: Live Demo -->
+      <!-- SLIDE 15: Podziękowania -->
       <section id="thanks" class="thanks-slide" data-state="is-section-divider">
-        <h1>Prezentacja aplikacji</h1>
+        <h1>Dziękujemy za uwagę</h1>
         <p class="text-muted" style="font-size: 14pt; margin-top: 30px;"><i class="fa-solid fa-globe"></i> &nbsp;gastrom.onrender.com</p>
         <p class="text-muted" style="font-size: 14pt; margin-top: 10px;">Igor Kohsin &nbsp;&bull;&nbsp; Oskar Krupa</p>
       </section>
